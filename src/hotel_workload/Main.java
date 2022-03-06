@@ -20,9 +20,6 @@ import java.util.List;
 //        assert(maxGuests({{1, 5}, {0, 1}, {4, 5}}) == 2);
 
 
-//Второе число меньше второго
-
-
 public class Main {
     public static void main(String[] args) {
 
