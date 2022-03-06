@@ -26,7 +26,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Pair> questDates = new ArrayList<Pair>();
+        ArrayList<Pair> questDates = new ArrayList<>();
         questDates.add(new Pair(1,2));
         questDates.add(new Pair(1,3));
         questDates.add(new Pair(1,4));
