@@ -1,8 +1,6 @@
 package hotel_workload;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 //Представьте себе программную базу данных гостиницы. Есть таблица гости, в каждой строке которой 2 значения - дата заезда,
 //дата выезда. Известно, что дата заезда строго меньше даты выезда (снимают номер минимум на одну ночь). Известно так же, номер освобождается утром,
@@ -32,8 +30,6 @@ public class Main {
 
         System.out.println(maxGuests(questDates));
 
-        System.out.println(questDates);
-
     }
     static int maxGuests(ArrayList<Pair> Pairs){
         int count;
@@ -47,7 +43,6 @@ public class Main {
             if (maxCount<count)
                 maxCount = count;
         }
-
         return maxCount;
     }
 
