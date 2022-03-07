@@ -4,21 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import static Tolstoys_words_parasites.Main.wordCount;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
-    File file = new File("res/test1.txt");
 
     @Test
     void wordCountTest() throws IOException {
-        //List<Map.Entry<String, Long>> test1 = new List<Map.Entry<String, Long>>();
-        //test1.add("abc",3L);
+        File file = new File("res/test1.txt");
 
-        //List<Map.Entry<String, Long>> abc = wordCount(file,3,5);
+        HashMap<String, Long> test1 = new HashMap<>();
+        test1.put("красивый",3L);
+        test1.put("красивой",3L);
+
+        Map<String, Long> abc = wordCount(file,3,10);
     }
 
 }
