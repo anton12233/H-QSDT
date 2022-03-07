@@ -33,7 +33,7 @@ public class Main {
     public static boolean isModif_True_Delete(String a, String b){
         int i = 0; // i - a
         int j = 0; // j - b
-        int count = 0;
+        int countDifSim = 0;
 
         if(a.length() - b.length() == 1) {
             while (j != b.length()) {
@@ -42,9 +42,9 @@ public class Main {
                     j++;
                 } else {
                     i++;
-                    count++;
+                    countDifSim++;
                 }
-                if (count > 1)
+                if (countDifSim > 1)
                     return false;
             }
             return true;
@@ -54,12 +54,12 @@ public class Main {
 
     public static boolean isModif_True_Change(String a, String b){
         int i = 0;
-        int count = 0;
+        int countDifSim = 0;
         if (a.length() - b.length() == 0){
             while (i != a.length()){
                 if (a.charAt(i)!=b.charAt(i))
-                    count++;
-                if (count > 1)
+                    countDifSim++;
+                if (countDifSim > 1)
                     return false;
                 i++;
             }
@@ -71,7 +71,7 @@ public class Main {
     public static boolean isModif_True_Insert(String a, String b){
         int i = 0; // i - a
         int j = 0; // j - b
-        int count = 0;
+        int countDifSim = 0;
 
         if (a.length() - b.length() == -1) {
             while (i != a.length()) {
@@ -80,9 +80,9 @@ public class Main {
                     j++;
                 } else {
                     j++;
-                    count++;
+                    countDifSim++;
                 }
-                if (count > 1)
+                if (countDifSim > 1)
                     return false;
             }
             return true;

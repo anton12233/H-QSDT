@@ -1,5 +1,6 @@
 package hotel_workload;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ class MainTest {
         ArrayList<Pair> questDates1 = new ArrayList<>();
         questDates1.add(new Pair(1,2));
 
-        assert(maxGuests(questDates1) == 1);
+        Assertions.assertEquals(1,maxGuests(questDates1));
 
         ArrayList<Pair> questDates2 = new ArrayList<>();
         questDates2.add(new Pair(1,2));

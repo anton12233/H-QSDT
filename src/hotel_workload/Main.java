@@ -31,6 +31,8 @@ public class Main {
         System.out.println(maxGuests(questDates));
 
     }
+
+    //упростить до n
     static int maxGuests(ArrayList<Pair> Pairs){
         int count;
         int maxCount = 0;

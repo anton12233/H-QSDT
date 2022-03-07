@@ -8,7 +8,7 @@ public class Pair {
     public Pair(int element0, int element1) {
         if(element0 >= element1)
             try {
-                throw new Exception("The element1 must be larger than the element0");
+                throw new Exception("The element1 must be larger than the element0"); //рантайм
             } catch (Exception e) {
                 e.printStackTrace();
             }
