@@ -17,23 +17,21 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toMap;
 
 public class Main {
-    static String regexPunct = "(?<!\\S)\\p{Punct}+|\\p{Punct}+(?!\\S)";
+    static final String REGEXPUNCT = "(?<!\\S)\\p{Punct}+|\\p{Punct}+(?!\\S)";
+    static final File FILE = new File("res/voina_i_mir.txt");
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("res/vim1.txt");
 
-        System.out.println((wordCount(file,5,10)));
-
-
-        System.out.println(wordCount_adject(wordCount(file,5,10)));
+        //System.out.println((wordCount(FILE,5,10)));
+        System.out.println(wordCount_adject(wordCount(FILE,5,10)));
 
     }
 
     public static Map<String, Long> wordCount(File file, int minSize, int maxSize) throws IOException {
 
         return   Files.lines(Paths.get(file.getAbsolutePath()))
-                .map(s -> s = s.replaceAll(regexPunct,""))
+                .map(s -> s = s.replaceAll(REGEXPUNCT,""))
                 .map(s->s.toLowerCase(Locale.ROOT))
                 .flatMap( s -> Stream.of(s.split(" ")))
                 .filter(e->e.length()>minSize)
