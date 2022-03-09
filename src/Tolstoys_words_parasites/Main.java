@@ -18,12 +18,12 @@ import static java.util.stream.Collectors.toMap;
 
 public class Main {
     static final String REGEXPUNCT = "(?<!\\S)\\p{Punct}+|\\p{Punct}+(?!\\S)";
-    static final File FILE = new File("res/vim1.txt");
+    static final File FILE = new File("res/Kant.txt");
 
     public static void main(String[] args) throws IOException {
 
-        //System.out.println((wordCount(FILE,4,10)));
-        System.out.println(wordCount_adject(wordCount(FILE,5,10)));
+        System.out.println((wordCount(FILE,6,10)));
+        //System.out.println(wordCount_adject(wordCount(FILE,5,10)));
 
     }
 
