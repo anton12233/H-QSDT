@@ -9,11 +9,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement
 public class Cat
 {
-    @XmlElement(name = "name")
     public String name;
-    @XmlAttribute(name = "age")
     public int age;
-    @XmlAttribute(name = "weight")
     public int weight;
 
     public Cat()

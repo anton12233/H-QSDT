@@ -1,5 +1,6 @@
 package fitness;
 
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -10,12 +11,13 @@ import java.util.ArrayList;
 public class Person {
 
     private final String name;
+    @XmlAnyElement
     private final ArrayList<Training> trainingList;
 
 
     public Person(String name) {
         this.name = name;
-        this.trainingList = new ArrayList<Training>();
+        this.trainingList = new ArrayList<>();
     }
 
     public String getName() {
