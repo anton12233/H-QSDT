@@ -12,7 +12,7 @@ import java.io.StringWriter;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, JAXBException, JAXBException {
+    public static void main(String[] args) throws InterruptedException, JAXBException {
 
 
         Runing run = new Runing();
