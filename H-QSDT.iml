@@ -40,5 +40,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="google.guava" level="project" />
+    <orderEntry type="library" name="javax.xml.bind.jaxb.api" level="project" />
   </component>
 </module>
