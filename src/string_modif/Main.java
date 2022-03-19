@@ -16,16 +16,22 @@ package string_modif;
 //замена - две строки одного размера, посимвольное сравнение, допускается один false
 //вставка - первая строка на один символ меньше второй, посимвольное сравнение, при первом false адресс в первой строке не сдвигается, при втором false - выход
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isModif_FuncManager("aaa ","aa  "));
+
+        System.out.println(isModif_FuncManager("energy", "  ergy"));
+
+
     }
 
     public static boolean isModif_FuncManager(String a, String b){
         return switch (a.length() - b.length()) {
-            case 1 -> isModif_True_Delete(a, b);
-            case 0 -> isModif_True_Change(a, b);
-            case -1 -> isModif_True_Insert(a, b);
+            case 1 -> isModifT_True_Ultimate(b, a);
+            case 0 -> isModifT_True_Ultimate(a, b);
+            case -1 -> isModifT_True_Ultimate(a, a);
             default -> false;
         };
     }
@@ -89,4 +95,28 @@ public class Main {
         }
         return false;
     }
+    public static boolean isModifT_True_Ultimate(String a, String b){
+        int i = 0; // i - a
+        //int j = 1; // j - b
+        int countDifSim = 0;
+
+            while (i != a.length()) {
+                if (a.charAt(i) == b.charAt(i)) {
+                    i++;
+                }else if(a.length() == b.length()){
+                    i++;
+                    countDifSim++;
+                }else if (a.charAt(i) == b.charAt(i+countDifSim)){
+                    i++;
+                }else {
+                    i++;
+                    countDifSim++;
+                }
+                if (countDifSim > 1)
+                    return false;
+            }
+            return true;
+
+    }
 }
+

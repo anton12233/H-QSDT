@@ -29,6 +29,7 @@ public class Main {
         questDates.add(new Pair(7,9));
 
         System.out.println(maxGuests(questDates));
+        System.out.println(alr_Merging_segments(questDates));
 
     }
 
@@ -47,6 +48,28 @@ public class Main {
         }
         return maxCount;
     }
+
+    static int alr_Merging_segments(ArrayList<Pair> Pairs){
+
+        int maxEaten = 0;
+
+        for (int i = 0; i<Pairs.size();i++){
+            for (int j = 1; j<Pairs.size();j++){
+                if(Pairs.get(i).isInclude(Pairs.get(j))&&(i!=j)) {
+                    Pairs.get(i).setElement0(Math.min(Pairs.get(i).getElement0(),Pairs.get(j).getElement0()));
+                    Pairs.get(i).setElement1(Math.max(Pairs.get(i).getElement1(),Pairs.get(j).getElement1()));
+                    Pairs.get(i).addEaten(Pairs.get(j).getEaten());
+                    maxEaten = Math.max(Pairs.get(i).getEaten(), Pairs.get(j).getEaten());
+                    Pairs.remove(Pairs.get(j));
+                    j--;
+                }
+            }
+        }
+
+
+        return maxEaten;
+    }
+
 
 
 }

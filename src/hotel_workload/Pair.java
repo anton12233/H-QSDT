@@ -2,8 +2,9 @@ package hotel_workload;
 
 public class Pair {
 
-    private final int element0;
-    private final int element1;
+    private int element0;
+    private int element1;
+    private int eaten = 1;
 
     public Pair(int element0, int element1) {
         if(element0 >= element1)
@@ -25,6 +26,18 @@ public class Pair {
         return element1;
     }
 
+    public void setElement0(int element0) {
+        this.element0 =  element0;
+    }
+
+    public void setElement1(int element1) {
+        this.element1 = element1;
+    }
+
+    public void addEaten(int namnam){
+        this.eaten +=namnam;
+    }
+
     public boolean isInclude(Pair pair){
 
         return (((this.element0 >= pair.element0) && (this.element0 < pair.element1))
@@ -33,4 +46,7 @@ public class Pair {
                 ||((this.element0 >= pair.element0) && (this.element1 <= pair.element1)));
     }
 
+    public int getEaten() {
+        return eaten;
+    }
 }
