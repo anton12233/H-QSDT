@@ -19,15 +19,18 @@ public class Main {
 
 
         Stopwatch stopwatch = Stopwatch.createStarted();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+
+
         stopwatch.stop(); // optional
+
 
         long duration = stopwatch.elapsed(TimeUnit.SECONDS);
 
+        Person anton = new Person();
 
-        Person anton = new Person("Anton");
-
-        Training training = new Training(run, duration);
+        Training training = new Training();
+        training.setTraining(run, duration);
         anton.addTraining(training);
 
         anton.addTraining(training);
@@ -39,7 +42,7 @@ public class Main {
         StringWriter writer = new StringWriter();
 
         //создание объекта Marshaller, который выполняет сериализацию
-        JAXBContext context = JAXBContext.newInstance(Person.class,Training.class,Runing.class,trainingInterface.class);
+        JAXBContext context = JAXBContext.newInstance(Person.class,Training.class,Runing.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         // сама сериализация

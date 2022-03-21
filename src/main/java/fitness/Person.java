@@ -1,28 +1,29 @@
 package fitness;
 
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import java.util.ArrayList;
+import fitness.TrainingList.Runing;
 
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 
 @XmlRootElement
 @XmlType(name = "Person")
+@XmlSeeAlso(Runing.class)
 public class Person {
 
-    private final String name;
+    @XmlElement(name = "name")
+    private String name;
     @XmlAnyElement
     private final ArrayList<Training> trainingList;
 
-
-    public Person(String name) {
-        this.name = name;
+    public Person(){
+        this.name = "default";
         this.trainingList = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
+    public void setName(String name) {
+        this.name = name;
     }
+
 
     public void addTraining(Training training){
         this.trainingList.add(training);

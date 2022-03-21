@@ -5,6 +5,8 @@ public class robo {
     String name;
     private boolean leftGO =  true;
     private boolean rightGO = false;
+    private int leftStepCount = 0;
+    private int rightStepCount = 0;
 
     public robo (String name){
         this.name = name;
@@ -21,25 +23,24 @@ public class robo {
         }
     }
 
-    public void goLeft() throws InterruptedException {
+    public synchronized void  goLeft() throws InterruptedException {
         if (this.rightGO){
             wait();
         }
-
+        leftStepCount++;
         System.out.println("I go on left leg");
-        Thread.sleep(100);
         System.out.println("I stop on left leg");
         this.leftGO = false;
         this.rightGO = true;
         notify();
     }
 
-    public void goRight() throws InterruptedException {
+    public synchronized void goRight() throws InterruptedException {
         if (this.leftGO){
             wait();
         }
+        rightStepCount++;
         System.out.println("I go on right leg");
-        Thread.sleep(100);
         System.out.println("I stop on right leg");
 
         this.rightGO = false;
@@ -48,4 +49,11 @@ public class robo {
         notify();
     }
 
+    public int getLeftStepCount() {
+        return leftStepCount;
+    }
+
+    public int getRightStepCount() {
+        return rightStepCount;
+    }
 }
