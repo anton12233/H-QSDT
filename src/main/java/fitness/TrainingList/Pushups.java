@@ -4,10 +4,9 @@ import fitness.trainingInterface;
 
 import java.io.Serializable;
 
-public class Runing implements trainingInterface, Serializable {
-
-    private static final String name = "Runing";
-    private static final long Kcal = 2L;
+public class Pushups implements Serializable, trainingInterface {
+    private static final String name = "Pushups";
+    private static final long Kcal = 1L;
 
     @Override
     public long getK() {
