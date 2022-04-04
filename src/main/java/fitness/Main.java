@@ -29,16 +29,10 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 
-
 public class Main {
 
     static String SAVEPATH = "src/main/java/fitness/save/";
-
     public static void main(String[] args) throws InterruptedException {
-
-
-        //System.setIn("");
-
         //Сделать класс трекира
 
         Scanner in = new Scanner(System.in);
@@ -48,7 +42,7 @@ public class Main {
         Stopwatch stopwatch;
 
         while (true) {
-            while ((i != 1 && i != 2)) {
+            while ((i != 1  && i != 2)) {
                 System.out.println("1 - To create new person\n2 - To load person from file\n0 - To close");
                 i = in.nextInt();
                 switch (i) {
@@ -72,11 +66,9 @@ public class Main {
                         }
                         break;
                     case 0:
-                        return; //это норм?
+                        return;
                 }
             }
-
-
             while (i != 9 && person != null) {
                 System.out.println("1 - To start the training\n2 - To info about training\n3 - To save\n9 - To exit\n0 - To close ");
                 i = in.nextInt();
@@ -103,9 +95,7 @@ public class Main {
                         }
                         System.out.println("Press Enter to start the training");
                         in.next();
-
                         stopwatch = Stopwatch.createStarted();
-
                         System.out.println("Press Enter to end the training");
                         in.next();
                         stopwatch.stop();
@@ -129,12 +119,9 @@ public class Main {
                         save(person);
                         System.out.println("Writhe the right number");
                         break;
-
                 }
             }
         }
-
-
     }
 
     static Person load() {
@@ -142,27 +129,22 @@ public class Main {
         File folder = new File(SAVEPATH);
         Scanner in = new Scanner(System.in);
         int position = -1;
-
         for (int i = 0; i< Objects.requireNonNull(folder.listFiles()).length; i++) //что это?
         {
             System.out.println((i+1) + " - " + Objects.requireNonNull(folder.listFiles())[i].getName());
         }
-
         while (position<0||position>folder.listFiles().length) {
             System.out.println("Write to number");
             position = in.nextInt();
         }
-
         if(position == 0){
             return null;
         }
-
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Objects.requireNonNull(folder.listFiles())[position-1].toString()))) {
             p = (Person) ois.readObject();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-
         System.out.println("Profile "+p.getName()+" uploaded");
         return p;
     }
@@ -178,7 +160,6 @@ public class Main {
 
     static boolean profileNameIsFree(String name){
         File folder = new File(SAVEPATH);
-
         for (int i = 0; i< Objects.requireNonNull(folder.listFiles()).length; i++){
             if(Objects.requireNonNull(folder.listFiles())[i].getName().equals(name)){
                 return false;
@@ -191,6 +172,4 @@ public class Main {
         File folder = new File(SAVEPATH);
         return Objects.requireNonNull(folder.listFiles()).length > 0;
     }
-
-
 }

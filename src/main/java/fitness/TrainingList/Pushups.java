@@ -1,7 +1,5 @@
 package fitness.TrainingList;
-
 import fitness.trainingInterface;
-
 import java.io.Serializable;
 
 public class Pushups implements Serializable, trainingInterface {
@@ -12,7 +10,5 @@ public class Pushups implements Serializable, trainingInterface {
     public long getK() {
         return Kcal;
     }
-
     public String getName() {return name;}
-
 }
